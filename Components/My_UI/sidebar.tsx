@@ -11,24 +11,37 @@ import {
   SidebarMenuItem,
 } from "../UI/sidebar";
 
-export function AppSidebar() {
+interface SidebarItem {
+  title: string;
+  icon: React.ReactNode;
+  href: string;
+}
+interface SidebarProps {
+  items: SidebarItem[];
+}
+
+export function AppSidebar({ items }: SidebarProps) {
   return (
-    <Sidebar>
+    <Sidebar variant="floating" collapsible="icon">
       <SidebarHeader />
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Home</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <Link href={"/"}>Home</Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              {items.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.href}>
+                      <span>{item.icon}</span>
+                      <span> {item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <SidebarGroup />
       </SidebarContent>
     </Sidebar>
   );
