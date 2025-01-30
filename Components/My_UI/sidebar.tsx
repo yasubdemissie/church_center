@@ -33,7 +33,7 @@ export function AppSidebar({ items }: SidebarProps) {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.href}>
-                      <span>{item.icon}</span>
+                      {item.icon}
                       <span> {item.title}</span>
                     </a>
                   </SidebarMenuButton>

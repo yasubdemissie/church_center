@@ -1,10 +1,24 @@
-import { Button_link } from "@/Components/My_UI/button";
+import { Card_p } from "@/Components/My_UI/card";
 
-export default function AboutPage() {
+const photos = [
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "ten",
+];
+
+export default function PostPage() {
   return (
-    <div>
-      <h1>post</h1>
-      <Button_link link="/setting">Setting</Button_link>
+    <div className="flex justify-start flex-wrap">
+      {photos.map((photo) => (
+        <Card_p key={photo} />
+      ))}
     </div>
   );
 }
