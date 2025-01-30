@@ -5,27 +5,27 @@ import { Book, ContactIcon, HomeIcon, PodcastIcon, SettingsIcon } from "lucide-r
 const sidebarItems = [
   {
     title: "Home",
-    icon: <HomeIcon />,
+    icon: <HomeIcon size={35} />,
     href: "/",
   },
   {
     title: "About",
-    icon: <Book />,
+    icon: <Book size={35} />,
     href: "/about",
   },
   {
     title: "My post",
-    icon: <PodcastIcon />,
+    icon: <PodcastIcon size={35} />,
     href: "/posts",
   },
   {
     title: "Contact",
-    icon: <ContactIcon />,
+    icon: <ContactIcon size={35} />,
     href: "/contact",
   },
   {
     title: "Setting",
-    icon: <SettingsIcon />,
+    icon: <SettingsIcon size={35} />,
     href: "/setting",
   },
 ];

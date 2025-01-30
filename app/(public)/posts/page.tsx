@@ -15,9 +15,9 @@ const photos = [
 
 export default function PostPage() {
   return (
-    <div className="flex justify-start flex-wrap">
+    <div className="flex justify-start flex-wrap p-[auto]">
       {photos.map((photo) => (
-        <Card_p key={photo} />
+        <Card_p key={photo} image={`${photo}`} />
       ))}
     </div>
   );
