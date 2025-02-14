@@ -1,0 +1,16 @@
+model Item {
+    id          String   @id @default(cuid())
+    name        String
+    description String?
+    price       Float
+    amount      Float // The amount to of item in mass (e.g. 1.5 kg) or in number of items (e.g. 30 items)
+    unit        String // The unit of the amount (e.g. kg, items)
+    image       String?
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    
+    review      Review[]
+    // This is the new field
+    user        User    @relation(fields: [userId], references: [id])
+    userId      String
+}
