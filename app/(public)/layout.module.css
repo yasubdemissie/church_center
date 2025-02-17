@@ -1,0 +1,6 @@
+.layout-container {
+    background-image: url('../../assets/image/abstract-white.jpg');
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}

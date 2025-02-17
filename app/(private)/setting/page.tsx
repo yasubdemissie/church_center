@@ -1,4 +1,4 @@
-import { Button_link } from "@/Components/My_UI/button";
+import { Button_link } from "@/Components/My_UI/link_button";
 import { Suspense } from "react";
 
 export default function AboutPage() {

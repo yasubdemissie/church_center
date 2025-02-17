@@ -1,10 +1,21 @@
-import { Button_link } from "@/Components/My_UI/button";
-export default function HomeComponent() {
+import Form from "@/Components/My_UI/Auth/form";
+
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+export default async function AuthenticationPage({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const searchParam = await searchParams;
+
+  const formType = searchParam.form;
+
+  console.log(formType);
   return (
-    <div>
-      <h1>Home</h1>
-      <p>Welcome to the home page!</p>
-      <Button_link link="/about">About</Button_link>
+    <div className="grid justify-center align-middle my-auto">
+      <div>
+        <Form formType={formType || "register"} />
+      </div>
     </div>
   );
 }

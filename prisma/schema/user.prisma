@@ -1,0 +1,42 @@
+model User {
+  id    String @id @default(cuid())
+  name String
+  email String @unique
+  image String?
+  email_verified DateTime?
+
+  items Item[]
+  reviews Review[]
+  carts Cart[]
+  accounts Account[]
+  sessions Session[]
+}
+
+model Account {
+  id Int @id @default(autoincrement())
+  provider String
+  providerAccountId String
+  accessToken String
+  refreshToken String?
+  expiresAt DateTime?
+  scope String?
+  sessionState String?
+
+  user User @relation(fields: [userId], references: [id])
+  userId String
+}
+
+model Session {
+  id String @id @default(cuid())
+  sessionToken String @unique
+  expires DateTime
+
+  user User @relation(fields: [userId], references: [id])
+  userId String
+}
+
+model VerificationToken {
+  identifier String @id
+  token String
+  expires DateTime
+}

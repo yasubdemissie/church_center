@@ -13,4 +13,20 @@ model Item {
     // This is the new field
     user        User    @relation(fields: [userId], references: [id])
     userId      String
+    // This is the new field
+    cart        Cart[]
+}
+
+model Review {
+    id        String   @id @default(cuid())
+    rating    Int
+    comment   String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    // This is the new field
+    item      Item     @relation(fields: [itemId], references: [id])
+    itemId    String
+    // This is the new field
+    user      User     @relation(fields: [userId], references: [id])
+    userId    String
 }

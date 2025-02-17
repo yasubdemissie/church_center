@@ -1,0 +1,26 @@
+model Cart {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    expiresAt DateTime
+    
+    // This is the new field
+    user      User     @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+    userId    String  @unique
+
+    payment Payment?
+    
+    // This is the new field
+    item      Item[]
+}
+
+
+model Payment {
+    id Int @id @default(autoincrement())
+    amount Int
+    type String
+    createdAt DateTime @default(now())
+
+    cart Cart @relation(fields: [cartId], references: [id])
+    cartId String @unique
+}
