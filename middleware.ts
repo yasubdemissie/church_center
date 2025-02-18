@@ -1,5 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+export { auth as middleware } from "@/auth";
+
 export default async function middleware(req: NextRequest) {
   const nextUrl = req.nextUrl;
   const publicPath = ["/"];

@@ -22,7 +22,7 @@ interface SidebarProps {
 
 export function AppSidebar({ items }: SidebarProps) {
   return (
-    <Sidebar variant="floating" collapsible="icon">
+    <Sidebar collapsible="icon">
       <SidebarHeader />
       <SidebarContent>
         <SidebarGroup>
@@ -31,7 +31,7 @@ export function AppSidebar({ items }: SidebarProps) {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild className="mb-4 font-semibold">
                     <a href={item.href}>
                       {item.icon}
                       <span> {item.title}</span>

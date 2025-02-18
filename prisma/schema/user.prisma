@@ -10,6 +10,7 @@ model User {
   carts Cart[]
   accounts Account[]
   sessions Session[]
+  verificationToken VerificationToken[]
 }
 
 model Account {
@@ -18,12 +19,14 @@ model Account {
   providerAccountId String
   accessToken String
   refreshToken String?
+  tokenType String?
   expiresAt DateTime?
   scope String?
+  idToken String?
   sessionState String?
 
-  user User @relation(fields: [userId], references: [id])
   userId String
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Session {
@@ -31,12 +34,15 @@ model Session {
   sessionToken String @unique
   expires DateTime
 
-  user User @relation(fields: [userId], references: [id])
   userId String
+  user User @relation(fields: [userId], references: [id])
 }
 
 model VerificationToken {
   identifier String @id
   token String
   expires DateTime
+
+  userId String
+  user User @relation(fields: [userId], references: [id])
 }

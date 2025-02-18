@@ -6,7 +6,7 @@ export default function AboutPage() {
     <Suspense fallback={<div>Loading...</div>}>
       <div>
         <h1>setting</h1>
-        <Button_link link="/">Home</Button_link>
+        <Button_link link="/home">Home</Button_link>
       </div>
     </Suspense>
   );
